@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div class="skewWrapper">
+ <video id="my-video" class="skewImg" muted autoplay width="640" height="480">
+	<source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4" />
+	<source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm" />
+</video>
+</div>
+<div class="skewWrapper">
+ <video id="my-video" class="skewImg" muted autoplay width="640" height="480">
+	<source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4" />
+	<source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm" />
+</video>
+</div>
+</body>
+
+<style>
+  body {
+  background: #20262E;
+  padding: 20px;
+}
+
+.skewWrapper {
+  margin-top: 50px;
+  position: relative;
+  width: 240px;
+  height: 270px;
+  overflow: hidden;
+  transform: skewY(20deg);
+  &:not(:first-child) {
+    margin-top: 2px;
+  }
+}
+
+
+.skewImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  transform: translate(-50%, -50%) skewY(-20deg);
+}
+
+#my-video {
+  width: 1280px;
+  height: 960px;
+}
+</style>
+</html>
