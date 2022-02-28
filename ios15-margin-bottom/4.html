@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <title>test</title>
+    <style>
+      html.is-fixed {
+        /* position: fixed; */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: red;
+      }
+      body {
+        margin: 0;
+        background: gold;
+      }
+      body.is-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow-y: scroll;
+      }
+      .main {
+        background: skyblue;
+      }
+      .button-wrapper {
+        text-align: right;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+      }
+      .button {
+        width: 150px;
+        height: 50px;
+        font-size: 2em;
+      }
+      .menu-wrapper {
+        position: relative;
+      }
+      .menu {
+        display: none;
+        background: pink;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: calc(100% - 65px);
+        max-width: 310px;
+        height: 100%;
+        z-index: 2;
+        overflow-y: scroll;
+      }
+      .menu.is-open {
+        display: block;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const open = document.querySelector('.js-open')
+        const close = document.querySelector('.js-close')
+        const menu = document.querySelector('.js-menu')
+        const html = document.documentElement
+        const body = document.body
+
+        open.addEventListener('click', () => {
+          const scrollY = window.scrollY
+          console.log(scrollY)
+
+          menu.classList.add('is-open')
+          html.classList.add('is-fixed')
+          body.classList.add('is-fixed')
+
+          html.style.top = `-${scrollY}px`
+          body.style.top = `-${scrollY}px`
+        })
+
+        close.addEventListener('click', () => {
+          const pos = parseInt(html.style.top)
+          console.log(pos)
+
+          html.style.top = ''
+          body.style.top = ''
+
+          menu.classList.remove('is-open')
+          html.classList.remove('is-fixed')
+          body.classList.remove('is-fixed')
+
+          window.scrollTo(0, Math.abs(pos))
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div class="button-wrapper">
+      <button class="button js-open">open</button>
+    </div>
+    <div class="menu-wrapper">
+      <div class="menu js-menu">
+        <button class="button js-close">close</button>
+        <ul>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+          <li>menu item</li>
+        </ul>
+      </div>
+    </div>
+    <div class="main">
+      <div>❗1行目❗</div>
+      <ol>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
