@@ -24,6 +24,7 @@
         top: 0;
         right: 0;
         width: calc(100% - 65px);
+        max-width: 310px;
         height: 100%;
       }
       .menu.is-open {
@@ -32,11 +33,9 @@
     </style>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        console.log('yay')
         const button = document.querySelector('.js-button')
         const menu = document.querySelector('.js-menu')
         button.addEventListener('click', () => {
-          console.log('click')
           menu.classList.add('is-open')
         })
       })
