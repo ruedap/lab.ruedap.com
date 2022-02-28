@@ -60,31 +60,47 @@
     </style>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const button = document.querySelector('.js-button')
+        const open = document.querySelector('.js-open')
+        const close = document.querySelector('.js-close')
         const menu = document.querySelector('.js-menu')
         const html = document.documentElement
         const body = document.body
-        button.addEventListener('click', () => {
-          const scrollTop = window.pageYOffset
-          console.log(scrollTop)
+
+        open.addEventListener('click', () => {
+          const scrollY = window.scrollY
+          console.log(scrollY)
 
           menu.classList.add('is-open')
           html.classList.add('is-fixed')
           body.classList.add('is-fixed')
 
-          html.style.top = `-${scrollTop}px`
-          body.style.top = `-${scrollTop}px`
+          html.style.top = `-${scrollY}px`
+          body.style.top = `-${scrollY}px`
+        })
 
+        close.addEventListener('click', () => {
+          const pos = parseInt(html.style.top)
+          console.log(pos)
+
+          html.style.top = ''
+          body.style.top = ''
+
+          menu.classList.remove('is-open')
+          html.classList.remove('is-fixed')
+          body.classList.remove('is-fixed')
+
+          window.scrollTo(0, Math.abs(pos))
         })
       })
     </script>
   </head>
   <body>
     <div class="button-wrapper">
-      <button class="button js-button">open</button>
+      <button class="button js-open">open</button>
     </div>
     <div class="menu-wrapper">
       <div class="menu js-menu">
+        <button class="button js-close">close</button>
         <ul>
           <li>menu item</li>
           <li>menu item</li>
