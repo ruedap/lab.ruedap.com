@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "serve -p 3333",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
