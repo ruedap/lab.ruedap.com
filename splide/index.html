@@ -23,7 +23,10 @@
           type       : 'loop',
           width: '200',
           height     : '300',
-          perPage    : 2,
+          perPage    : 3,
+          drag   : 'free',
+          snap   : true,
+          focus  : 'center',
           breakpoints: {
             640: {
               width: '250',
@@ -42,9 +45,21 @@
       <section class="splide" aria-label="Splide Basic HTML Example">
         <div class="splide__track">
           <ul class="splide__list">
-            <li class="splide__slide">Slide 01</li>
-            <li class="splide__slide">Slide 02</li>
-            <li class="splide__slide">Slide 03</li>
+            <li class="splide__slide">
+              <div class="splide__slide__container">Slide 01</div>
+            </li>
+            <li class="splide__slide">
+              <div class="splide__slide__container">Slide 02</div>
+            </li>
+            <li class="splide__slide">
+              <div class="splide__slide__container">Slide 03</div>
+            </li>
+            <li class="splide__slide">
+              <div class="splide__slide__container">Slide 04</div>
+            </li>
+            <li class="splide__slide">
+              <div class="splide__slide__container">Slide 05</div>
+            </li>
           </ul>
         </div>
       </section>
