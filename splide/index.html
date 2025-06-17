@@ -24,7 +24,7 @@
           mediaQuery: 'min',
           breakpoints: {
             800: {
-              focus  : 1,
+              focus  : 0,
               perPage    : 4
             },
           },
@@ -56,12 +56,33 @@
         margin: 0 auto;
       }
 
+      .splide__arrow {
+        top: auto;
+        bottom: -50px;
+
+        @media screen and (min-width: 900px) {
+          top: 50%;
+          bottom: auto;
+        }
+      }
+
+      .splide__pagination {
+        bottom: -30px;
+      }
+
+      .splide__pagination__page {
+        pointer-events: none;
+      }
+      .splide__pagination__page.is-active {
+        background: skyblue;
+      }
+
       .d-Splide {
         width: 100%;
       }
 
       .d-Splide-track {
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: 820px) {
           width: 800px;
           margin: 0 auto;
         }
@@ -100,55 +121,55 @@
               <li class="splide__slide d-Splide-item">
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./001.png" alt="">
-                  <div>Slide 01</div>
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 01</a>
                 </div>
               </li>
               <li class="splide__slide d-Splide-item">
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./002.png" alt="">
-                  <div>Slide 02</div>
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 02</a>
                 </div>
               </li>
               <li class="splide__slide d-Splide-item">
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./003.png" alt="">
-                  <div>Slide 03</div>
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 03</a>
                 </div>
               </li>
               <li class="splide__slide d-Splide-item">
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./004.png" alt="">
-                  <div>Slide 04</div>
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 04</a>
                 </div>
               </li>
               <li class="splide__slide d-Splide-item">
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./005.png" alt="">
-                  <div>Slide 05</div>
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 05</a>
                 </div>
               </li>
               <li class="splide__slide d-Splide-item">
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./006.png" alt="">
-                  <div>Slide 06</div>
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 06</a>
                 </div>
               </li>
               <li class="splide__slide d-Splide-item">
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./007.png" alt="">
-                  <div>Slide 07</div>
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 07</a>
                 </div>
               </li>
               <li class="splide__slide d-Splide-item">
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./008.png" alt="">
-                  <div>Slide 08</div>
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 08</a>
                 </div>
               </li>
               <li class="splide__slide d-Splide-item">
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./009.png" alt="">
-                  <div>Slide 09</div>
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 09</a>
                 </div>
               </li>
             </ul>
