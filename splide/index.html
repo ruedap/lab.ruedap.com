@@ -15,16 +15,17 @@
       document.addEventListener('DOMContentLoaded', () => {
         var splide = new Splide( '.splide', {
           type       : 'loop',
-          width: '200',
-          height     : '300',
+          fixedWidth: '200',
+          fixedHeight     : '400',
           perPage    : 3,
           drag   : 'free',
           snap   : true,
           focus  : 'center',
+          mediaQuery: 'min',
           breakpoints: {
-            640: {
-              width: '250',
-              height: '400'
+            800: {
+              focus  : 1,
+              perPage    : 4
             },
           },
         } );
@@ -37,17 +38,42 @@
         box-sizing: border-box;
       }
 
+      body {
+        background-color: #aaa;
+      }
+
       .container {
         max-width: 900px;
+        height: 2000px;
+        margin: 0 auto;
+        background-color: #fff;
+      }
+
+      .outer {
+
+        display: flex;
+        justify-content: center;
         margin: 0 auto;
       }
 
-      .splide__slide__container {
+      .d-Splide {
+        width: 100%;
+      }
+
+      .d-Splide-track {
+        @media screen and (min-width: 800px) {
+          width: 800px;
+          margin: 0 auto;
+        }
       }
 
       .d-Splide-item {
         display: flex;
         justify-content: center;
+      }
+
+      .d-Splide-item.is-active {
+        border-color: #f00;
       }
 
       .d-Splide-container {
@@ -66,42 +92,69 @@
   </head>
   <body>
     <div class="container">
-      <section class="splide" aria-label="Splide Basic HTML Example">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide d-Splide-item">
-              <div class="splide__slide__container d-Splide-container">
-                <img class="d-Splide-image" src="./001.png" alt="">
-                <div>Slide 01</div>
-              </div>
-            </li>
-            <li class="splide__slide d-Splide-item">
-              <div class="splide__slide__container d-Splide-container">
-                <img class="d-Splide-image" src="./002.png" alt="">
-                <div>Slide 02</div>
-              </div>
-            </li>
-            <li class="splide__slide d-Splide-item">
-              <div class="splide__slide__container d-Splide-container">
-                <img class="d-Splide-image" src="./003.png" alt="">
-                <div>Slide 03</div>
-              </div>
-            </li>
-            <li class="splide__slide d-Splide-item">
-              <div class="splide__slide__container d-Splide-container">
-                <img class="d-Splide-image" src="./004.png" alt="">
-                <div>Slide 04</div>
-              </div>
-            </li>
-            <li class="splide__slide d-Splide-item">
-              <div class="splide__slide__container d-Splide-container">
-                <img class="d-Splide-image" src="./005.png" alt="">
-                <div>Slide 05</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <h1>Splide test</h1>
+      <div class="outer">
+        <section class="splide d-Splide" aria-label="Splide Basic HTML Example">
+          <div class="splide__track d-Splide-track">
+            <ul class="splide__list">
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./001.png" alt="">
+                  <div>Slide 01</div>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./002.png" alt="">
+                  <div>Slide 02</div>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./003.png" alt="">
+                  <div>Slide 03</div>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./004.png" alt="">
+                  <div>Slide 04</div>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./005.png" alt="">
+                  <div>Slide 05</div>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./006.png" alt="">
+                  <div>Slide 06</div>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./007.png" alt="">
+                  <div>Slide 07</div>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./008.png" alt="">
+                  <div>Slide 08</div>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./009.png" alt="">
+                  <div>Slide 09</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
     </div>
   </body>
 </html>
