@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <title>Swiper test</title>
+    <!-- SwiperのCSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+      body {
+        margin: 0;
+        background-color: #aaa;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding-bottom: 100px;
+      }
+      .outer {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        padding-bottom: 40px;
+      }
+      .swiper {
+        width: 100%;
+      }
+      .swiper-track {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+      }
+      .swiper-slide.is-active {
+        border-color: #f00;
+      }
+      .d-Splide-container {
+        border: 1px solid rgb(204, 204, 204);
+        padding: 8px;
+        width: 200px;
+        height: 412px;
+      }
+      .d-Splide-image {
+        width: 184px;
+        height: 184px;
+      }
+      .swiper-pagination-bullet-active {
+        background: skyblue !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Swiper test</h1>
+      <h2>メインビジュアル</h2>
+      <p>TODO</p>
+      <h2>メインビジュアル以外（3枚表示）</h2>
+      <p>TODO</p>
+      <h2>メインビジュアル以外（4枚表示）</h2>
+      <h3>アイテム9個</h3>
+      <div class="outer">
+        <div class="swiper swiper4_9 swiper-track">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="splide__slide__container d-Splide-container">
+                <img class="d-Splide-image" src="./001.png" alt="" width="184" height="184" decoding="async">
+                <a href="https://www.google.com" class="d-Splide-link">Slide 01</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="splide__slide__container d-Splide-container">
+                <img class="d-Splide-image" src="./002.png" alt="" width="184" height="184" decoding="async">
+                <a href="https://www.google.com" class="d-Splide-link">Slide 02</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="splide__slide__container d-Splide-container">
+                <img class="d-Splide-image" src="./003.png" alt="" width="184" height="184" decoding="async">
+                <a href="https://www.google.com" class="d-Splide-link">Slide 03</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="splide__slide__container d-Splide-container">
+                <img class="d-Splide-image" src="./004.png" alt="" width="184" height="184" decoding="async">
+                <a href="https://www.google.com" class="d-Splide-link">Slide 04</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="splide__slide__container d-Splide-container">
+                <img class="d-Splide-image" src="./005.png" alt="" width="184" height="184" decoding="async">
+                <a href="https://www.google.com" class="d-Splide-link">Slide 05</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="splide__slide__container d-Splide-container">
+                <img class="d-Splide-image" src="./006.png" alt="" width="184" height="184" decoding="async">
+                <a href="https://www.google.com" class="d-Splide-link">Slide 06</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="splide__slide__container d-Splide-container">
+                <img class="d-Splide-image" src="./007.png" alt="" width="184" height="184" decoding="async">
+                <a href="https://www.google.com" class="d-Splide-link">Slide 07</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="splide__slide__container d-Splide-container">
+                <img class="d-Splide-image" src="./008.png" alt="" width="184" height="184" decoding="async">
+                <a href="https://www.google.com" class="d-Splide-link">Slide 08</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="splide__slide__container d-Splide-container">
+                <img class="d-Splide-image" src="./009.png" alt="" width="184" height="184" decoding="async">
+                <a href="https://www.google.com" class="d-Splide-link">Slide 09</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+      <!-- 他のバリエーションも同様に追加可能 -->
+    </div>
+    <!-- SwiperのJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.swiper4_9', {
+          loop: true,
+          slidesPerView: 4,
+          slidesPerGroup: 4,
+          spaceBetween: 16,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            820: {
+              slidesPerView: 4,
+              slidesPerGroup: 4,
+            },
+            0: {
+              slidesPerView: 3,
+              slidesPerGroup: 1,
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
