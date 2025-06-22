@@ -13,6 +13,7 @@
     <script src="splide_files/js/splide.min.js" defer></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
+        console.log('start')
         var opts3 = {
           type       : 'loop',
           fixedWidth: '200',
@@ -70,7 +71,7 @@
 
             const mount = () => {
               const list = element.querySelector('.splide__list');
-              if (list.children.length === 2) {
+              if (list.children.length === 2 || list.children.length === 3) {
                 slides.forEach(slide => list.appendChild(slide.cloneNode(true)));
               }
               const mobileOptions = { ...options, type: 'loop', focus: 'center' };
@@ -99,6 +100,7 @@
             newOptions.focus = 0;
           }
           new Splide(element, newOptions).mount();
+          console.log('initSplideConditionally', selector, slides.length)
         }
 
         opts4.type = 'slide';
@@ -195,11 +197,6 @@
       .d-Splide-image--3 {
         width: 250px;
         height: 250px;
-      }
-
-      .splide4_2:not(.is-initialized) .splide__list {
-        display: flex;
-        justify-content: center;
       }
     </style>
   </head>
