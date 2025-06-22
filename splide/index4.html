@@ -59,19 +59,46 @@
 
         function initSplideConditionally(selector, options) {
           const element = document.querySelector(selector);
-          if (element) {
-            const slides = element.querySelectorAll('.splide__slide');
-            const newOptions = { ...options };
+          if (!element) return;
 
-            if (slides.length <= 1) {
-              newOptions.type = 'slide';
-              newOptions.arrows = false;
-              newOptions.pagination = false;
-              newOptions.drag = false;
-              newOptions.focus = 0;
-            }
-            new Splide(element, newOptions).mount();
+          const slides = element.querySelectorAll('.splide__slide');
+          const newOptions = { ...options };
+
+          if (selector === '.splide4_2' && slides.length === 2) {
+            const mql = window.matchMedia('(min-width: 820px)');
+            let splideInstance;
+
+            const mount = () => {
+              const list = element.querySelector('.splide__list');
+              if (list.children.length === 2) {
+                slides.forEach(slide => list.appendChild(slide.cloneNode(true)));
+              }
+              const mobileOptions = { ...options, type: 'loop', focus: 'center' };
+              splideInstance = new Splide(element, mobileOptions);
+              splideInstance.mount();
+            };
+
+            const destroy = () => {
+              if (splideInstance) {
+                splideInstance.destroy('completely');
+                splideInstance = null;
+              }
+            };
+
+            const handleChange = e => e.matches ? destroy() : mount();
+            mql.addEventListener('change', handleChange);
+            handleChange(mql);
+            return;
           }
+
+          if (slides.length <= 1) {
+            newOptions.type = 'slide';
+            newOptions.arrows = false;
+            newOptions.pagination = false;
+            newOptions.drag = false;
+            newOptions.focus = 0;
+          }
+          new Splide(element, newOptions).mount();
         }
 
         opts4.type = 'slide';
@@ -168,6 +195,11 @@
       .d-Splide-image--3 {
         width: 250px;
         height: 250px;
+      }
+
+      .splide4_2:not(.is-initialized) .splide__list {
+        display: flex;
+        justify-content: center;
       }
     </style>
   </head>
@@ -323,8 +355,8 @@
         </section>
       </div>
 
-      <!--
       <h3>アイテム2個</h3>
+      <h4>SPでカルーセル、PCでカルーセルなし</h4>
       <div class="outer">
         <section class="splide4_2 splide d-Splide" aria-label="Splide Basic HTML Example">
           <div class="splide__track d-Splide-track">
@@ -346,6 +378,7 @@
         </section>
       </div>
 
+      <!--
       <h3>アイテム3個</h3>
       <div class="outer">
         <section class="splide4_3 splide d-Splide" aria-label="Splide Basic HTML Example">
