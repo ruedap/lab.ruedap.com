@@ -57,14 +57,30 @@
         }
         new Splide( '.splide4_9', opts4 ).mount();
 
-        opts4.type = 'slide'
-        new Splide( '.splide4_1', opts4 ).mount();
-        new Splide( '.splide4_2', opts4 ).mount();
-        new Splide( '.splide4_3', opts4 ).mount();
-        new Splide( '.splide4_4', opts4 ).mount();
-        opts4.type = 'loop'
-        new Splide( '.splide4_5', opts4 ).mount();
+        function initSplideConditionally(selector, options) {
+          const element = document.querySelector(selector);
+          if (element) {
+            const slides = element.querySelectorAll('.splide__slide');
+            const newOptions = { ...options };
 
+            if (slides.length <= 1) {
+              newOptions.type = 'slide';
+              newOptions.arrows = false;
+              newOptions.pagination = false;
+              newOptions.drag = false;
+            }
+            new Splide(element, newOptions).mount();
+          }
+        }
+
+        opts4.type = 'slide';
+        initSplideConditionally('.splide4_1', opts4);
+        initSplideConditionally('.splide4_2', opts4);
+        initSplideConditionally('.splide4_3', opts4);
+        initSplideConditionally('.splide4_4', opts4);
+
+        opts4.type = 'loop';
+        initSplideConditionally('.splide4_5', opts4);
       })
     </script>
     <style>
@@ -289,7 +305,6 @@
         </section>
       </div>
 
-      <!--
       <h3>アイテム1個</h3>
       <div class="outer">
         <section class="splide4_1 splide d-Splide" aria-label="Splide Basic HTML Example">
@@ -306,7 +321,7 @@
         </section>
       </div>
 
-
+      <!--
       <h3>アイテム2個</h3>
       <div class="outer">
         <section class="splide4_2 splide d-Splide" aria-label="Splide Basic HTML Example">
