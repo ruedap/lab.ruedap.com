@@ -13,26 +13,63 @@
     <script src="splide_files/js/splide.min.js" defer></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-
-        var opts4 = {
-          type      : 'loop',
+        var baseOptions = {
+          type: 'loop',
           fixedWidth: '200',
-          fixedHeight     : '400',
+          fixedHeight: '400',
           flickPower: 50,
-          flickMaxPages: 1,
-          perPage   : 3,
-          perMove   : 3,
-          padding   : '0',
-          gap       : '0',
+          flickMaxPages : 1,
+          perPage: 3,
+          perMove: 3,
+          padding: '0',
+          gap: '0',
           breakpoints: {
             820: {
               focus: 'center',
-              perPage   : 1,
-              perMove   : 1,
+              perPage: 1,
+              perMove: 1,
             }
           }
         }
-        new Splide( '.splide4_9', opts4 ).mount();
+
+        const toggleSliderActivation = (splideInstance) => {
+          const { length } = splideInstance;
+          const { perPage } = splideInstance.options;
+
+          if (length <= perPage) {
+            // 枚数が足りない場合：機能を無効化
+            splideInstance.options.type = 'slide';
+            splideInstance.options.arrows = false;
+            splideInstance.options.pagination = false;
+            splideInstance.options.drag = false;
+            splideInstance.options.keyboard = false;
+          } else {
+            // 枚数が十分な場合：機能を有効化
+            splideInstance.options.type = 'loop';
+            splideInstance.options.arrows = true;
+            splideInstance.options.pagination = true;
+            splideInstance.options.drag = true;
+            splideInstance.options.keyboard = 'focused';
+          }
+          splideInstance.refresh();
+        };
+
+        // ★★★ ポイント：ページ内にあるすべての.splide要素を取得 ★★★
+        const splideElements = document.querySelectorAll('.splide');
+
+        // ★★★ ポイント：取得した各要素に対して、初期化処理を実行 ★★★
+        splideElements.forEach(element => {
+          // 個々の要素に対してSplideインスタンスを生成
+          const splide = new Splide(element, baseOptions);
+
+          // 各インスタンスにイベントリスナーを設定
+          splide.on('mounted updated resized', () => {
+            toggleSliderActivation(splide);
+          });
+
+          // スライダーをマウント
+          splide.mount();
+        });
 
       })
     </script>
@@ -134,7 +171,6 @@
       <h2>メインビジュアル</h2>
       <p>TODO</p>
       <h2>メインビジュアル以外（3枚表示）</h2>
-      <!---
       <div class="outer">
         <section class="splide3_9 splide d-Splide" aria-label="Splide Basic HTML Example">
           <div class="splide__track d-Splide-track">
@@ -197,7 +233,6 @@
           </div>
         </section>
       </div>
-      -->
 
       <h2>メインビジュアル以外（4枚表示）</h2>
       <h3>アイテム9個</h3>
