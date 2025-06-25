@@ -18,17 +18,21 @@
           type      : 'loop',
           fixedWidth: '200',
           fixedHeight     : '400',
-      perPage   : 3,
-      perMove   : 3,
-      gap       : '0',
-      breakpoints: {
-        768: {
+          flickPower: 50,
+          flickMaxPages: 1,
           perPage   : 1,
           perMove   : 1,
           padding   : '0',
+          gap       : '0',
+          mediaQuery: 'min',
+          focus: 'center',
+          breakpoints: {
+            820: {
+              perPage   : 3,
+              perMove   : 3,
+            }
+          }
         }
-      }
-    }
         new Splide( '.splide4_9', opts4 ).mount();
 
       })

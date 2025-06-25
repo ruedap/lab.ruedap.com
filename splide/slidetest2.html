@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splide 複数設置</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <style>
+    body { font-family: sans-serif; }
+    .container { max-width: 900px; margin: 2em auto; }
+    h2 { margin-top: 2em; border-bottom: 2px solid #007bff; padding-bottom: .5em;}
+    .splide__slide {
+      background: #eee;
+      border: 1px solid #ddd;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>ドットがまとまらなくなるfocus: 0を入れた例</h2>
+  <div class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide">A-1</li>
+        <li class="splide__slide">A-2</li>
+        <li class="splide__slide">A-3</li>
+        <li class="splide__slide">A-4</li>
+        <li class="splide__slide">A-5</li>
+        <li class="splide__slide">A-6</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>2つ目のスライダー（枚数が少なく機能停止する例）</h2>
+  <div class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide">B-1</li>
+        <li class="splide__slide">B-2</li>
+        <li class="splide__slide">B-3</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  /**
+   * スライダーの機能を条件に応じて有効/無効にする共通関数
+   */
+  const toggleSliderActivation = (splideInstance) => {
+    const { length } = splideInstance;
+    const { perPage } = splideInstance.options;
+
+    if (length <= perPage) {
+      // 枚数が足りない場合：機能を無効化
+      splideInstance.options.type = 'slide';
+      splideInstance.options.arrows = false;
+      splideInstance.options.pagination = false;
+      splideInstance.options.drag = false;
+      splideInstance.options.keyboard = false;
+    } else {
+      // 枚数が十分な場合：機能を有効化
+      splideInstance.options.type = 'loop';
+      splideInstance.options.arrows = true;
+      splideInstance.options.pagination = true;
+      splideInstance.options.drag = true;
+      splideInstance.options.keyboard = 'focused';
+    }
+    splideInstance.refresh();
+  };
+
+  // ★★★ ポイント：ページ内にあるすべての.splide要素を取得 ★★★
+  const splideElements = document.querySelectorAll('.splide');
+
+  // ★★★ ポイント：取得した各要素に対して、初期化処理を実行 ★★★
+  splideElements.forEach(element => {
+    // 個々の要素に対してSplideインスタンスを生成
+    const splide = new Splide(element, {
+      // これまでの設定をそのまま適用
+      type      : 'loop',
+      perPage   : 3,
+      perMove   : 3,
+      gap       : '1em',
+      focus: 0,
+      breakpoints: {
+        768: {
+          perPage   : 1,
+          perMove   : 1,
+          padding   : '15%',
+        }
+      }
+    });
+
+    // 各インスタンスにイベントリスナーを設定
+    splide.on('mounted updated resized', () => {
+      toggleSliderActivation(splide);
+    });
+
+    // スライダーをマウント
+    splide.mount();
+  });
+});
+</script>
+
+</body>
+</html>
