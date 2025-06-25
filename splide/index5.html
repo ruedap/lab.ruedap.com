@@ -15,24 +15,18 @@
       document.addEventListener('DOMContentLoaded', () => {
 
         var opts4 = {
-          type       : 'loop',
-          fixedWidth: '200',
-          fixedHeight     : '400',
-              perPage: 4,
-              perMove: 4,
-          flickPower: 50,
-          flickMaxPages: 1,
-          drag   : true,
-          snap   : true,
-          focus  : 'center',
-          breakpoints: {
-            820: {
-              focus  : 0,
-              perPage: 4,
-              perMove: 4
-            },
-          },
+          type      : 'loop',
+      perPage   : 3,
+      perMove   : 3,
+      gap       : '1em',
+      breakpoints: {
+        768: {
+          perPage   : 1,
+          perMove   : 1,
+          padding   : '15%',
         }
+      }
+    }
         new Splide( '.splide4_9', opts4 ).mount();
 
       })
