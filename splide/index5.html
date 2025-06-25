@@ -13,107 +13,28 @@
     <script src="splide_files/js/splide.min.js" defer></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        console.log('start')
-        var opts3 = {
-          type       : 'loop',
-          fixedWidth: '200',
-          fixedHeight     : '400',
-          perPage    : 3,
-          perMove: 1,
-          flickPower: 50,
-          flickMaxPages: 1,
-          drag   : true,
-          snap   : true,
-          focus  : 'center',
-          mediaQuery: 'min',
-          breakpoints: {
-            820: {
-              focus  : 0,
-              perPage    : 3,
-              perMove: 3
-            },
-          },
-        }
-        new Splide( '.splide3_9', opts3 ).mount();
 
         var opts4 = {
           type       : 'loop',
           fixedWidth: '200',
           fixedHeight     : '400',
-          perPage    : 3,
-          perMove: 1,
+              perPage: 4,
+              perMove: 4,
           flickPower: 50,
           flickMaxPages: 1,
           drag   : true,
           snap   : true,
           focus  : 'center',
-          mediaQuery: 'min',
           breakpoints: {
             820: {
               focus  : 0,
-              perPage    : 4,
+              perPage: 4,
               perMove: 4
             },
           },
         }
         new Splide( '.splide4_9', opts4 ).mount();
 
-        function initSplideConditionally(selector, options) {
-          const element = document.querySelector(selector);
-          if (!element) return;
-
-          const slides = element.querySelectorAll('.splide__slide');
-          const newOptions = { ...options };
-
-          if (selector === '.splide4_2' && slides.length === 2) {
-            const mql = window.matchMedia('(min-width: 820px)');
-            let splideInstance;
-
-            const mount = () => {
-              const list = element.querySelector('.splide__list');
-              // if (list.children.length === 2 || list.children.length === 3) {
-              //   slides.forEach(slide => list.appendChild(slide.cloneNode(true)));
-              // }
-              const mobileOptions = { ...options, type: 'loop', focus: 'center' };
-              splideInstance = new Splide(element, mobileOptions);
-              splideInstance.mount();
-            };
-
-            const destroy = () => {
-              if (splideInstance) {
-                splideInstance.destroy('completely');
-                splideInstance = null;
-              }
-            };
-
-            const handleChange = e => e.matches ? destroy() : mount();
-            mql.addEventListener('change', handleChange);
-            handleChange(mql);
-            mount();
-            return;
-          }
-
-          if (slides.length <= 1) {
-            newOptions.type = 'slide';
-            newOptions.arrows = false;
-            newOptions.pagination = false;
-            newOptions.drag = false;
-            newOptions.focus = 0;
-          }
-          new Splide(element, newOptions).mount();
-          console.log('initSplideConditionally', selector, slides.length)
-        }
-
-        opts4.type = 'slide';
-        initSplideConditionally('.splide4_1', opts4);
-        opts4.type = 'loop';
-        opts4.clones = 2;
-        initSplideConditionally('.splide4_2', opts4);
-        initSplideConditionally('.splide4_3', opts4);
-        initSplideConditionally('.splide4_4', opts4);
-
-        opts4.type = 'loop';
-        initSplideConditionally('.splide4_5', opts4);
       })
     </script>
     <style>
@@ -214,6 +135,7 @@
       <h2>メインビジュアル</h2>
       <p>TODO</p>
       <h2>メインビジュアル以外（3枚表示）</h2>
+      <!---
       <div class="outer">
         <section class="splide3_9 splide d-Splide" aria-label="Splide Basic HTML Example">
           <div class="splide__track d-Splide-track">
@@ -276,6 +198,7 @@
           </div>
         </section>
       </div>
+      -->
 
       <h2>メインビジュアル以外（4枚表示）</h2>
       <h3>アイテム9個</h3>
