@@ -35,6 +35,11 @@
         const toggleSliderActivation = (splideInstance) => {
           const { length } = splideInstance;
           const { perPage } = splideInstance.options;
+          console.log(length, perPage)
+
+          if (length == 1) {
+            splideInstance.options.focus = 0;
+          }
 
           if (length <= perPage) {
             // 枚数が足りない場合：機能を無効化
@@ -61,7 +66,6 @@
 
 
           const has4Slide = Array.from(element.classList).some(className => className.startsWith('splide4_'));
-          console.log(element.classList, has4Slide)
           let newOptions;
           if (has4Slide) {
               newOptions = { ...baseOptions, perPage: 4, perMove: 4 };
