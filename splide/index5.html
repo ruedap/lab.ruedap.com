@@ -58,6 +58,14 @@
 
         // ★★★ ポイント：取得した各要素に対して、初期化処理を実行 ★★★
         splideElements.forEach(element => {
+
+
+          const has4Slide = Array.from(element.classList).some(className => className.startsWith('splide4_'));
+          if (has4Slide) {
+              const newOptions = { ...baseOptions, perPage: 4, perMove: 4 };
+          }
+
+
           // 個々の要素に対してSplideインスタンスを生成
           const splide = new Splide(element, baseOptions);
 
