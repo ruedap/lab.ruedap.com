@@ -61,13 +61,17 @@
 
 
           const has4Slide = Array.from(element.classList).some(className => className.startsWith('splide4_'));
+          console.log(element.classList, has4Slide)
+          let newOptions;
           if (has4Slide) {
-              const newOptions = { ...baseOptions, perPage: 4, perMove: 4 };
+              newOptions = { ...baseOptions, perPage: 4, perMove: 4 };
+          } else {
+              newOptions = baseOptions
           }
 
 
           // 個々の要素に対してSplideインスタンスを生成
-          const splide = new Splide(element, baseOptions);
+          const splide = new Splide(element, newOptions);
 
           // 各インスタンスにイベントリスナーを設定
           splide.on('mounted updated resized', () => {
@@ -442,6 +446,162 @@
                 <div class="splide__slide__container d-Splide-container">
                   <img class="d-Splide-image" src="./005.png" alt="">
                   <a href="https://www.google.com" class="d-Splide-link">Slide 05</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <h3>アイテム6個</h3>
+      <div class="outer">
+        <section class="splide4_6 splide d-Splide" aria-label="Splide Basic HTML Example">
+          <div class="splide__track d-Splide-track">
+            <ul class="splide__list">
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./001.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 01</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./002.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 02</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./003.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 03</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./004.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 04</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./005.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 05</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./006.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 06</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <h3>アイテム7個</h3>
+      <div class="outer">
+        <section class="splide4_7 splide d-Splide" aria-label="Splide Basic HTML Example">
+          <div class="splide__track d-Splide-track">
+            <ul class="splide__list">
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./001.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 01</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./002.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 02</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./003.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 03</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./004.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 04</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./005.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 05</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./006.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 06</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./007.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 07</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <h3>アイテム8個</h3>
+      <div class="outer">
+        <section class="splide4_8 splide d-Splide" aria-label="Splide Basic HTML Example">
+          <div class="splide__track d-Splide-track">
+            <ul class="splide__list">
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./001.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 01</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./002.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 02</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./003.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 03</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./004.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 04</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./005.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 05</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./006.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 06</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./007.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 07</a>
+                </div>
+              </li>
+              <li class="splide__slide d-Splide-item">
+                <div class="splide__slide__container d-Splide-container">
+                  <img class="d-Splide-image" src="./008.png" alt="">
+                  <a href="https://www.google.com" class="d-Splide-link">Slide 08</a>
                 </div>
               </li>
             </ul>
