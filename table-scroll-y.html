@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>固定列テーブル（列幅固定）</title>
 <style>
+  html, * {
+    box-sizing: border-box;
+  }
   .table-container {
     width: 100%;         /* 表示領域の幅 */
     overflow-x: auto;     /* 横スクロールを有効化 */
-    border: 1px solid #ccc;
   }
   table {
     border-collapse: collapse;
@@ -16,7 +18,6 @@
   }
   th, td {
     border: 1px solid #ccc;
-    width: 100px;         /* 列幅固定 */
     min-width: 100px;
     max-width: 100px;
     padding: 8px;
@@ -29,21 +30,28 @@
     position: sticky;
     left: 0;
     background: #f9f9f9;
+    border: 1px solid #ccc;
     z-index: 3;
+    width: 100px;         /* 列幅固定 */
   }
   th:nth-child(2), td:nth-child(2) {
     position: sticky;
     left: 100px;  /* 1列目の幅 */
     background: #f9f9f9;
+    border: 1px solid #ccc;
     z-index: 3;
+    width: 100px;         /* 列幅固定 */
   }
   th:nth-child(3), td:nth-child(3) {
     position: sticky;
     left: 200px;  /* 1列目+2列目の幅 */
     background: #f9f9f9;
+    border: 1px solid #ccc;
     z-index: 3;
+    width: 100px;         /* 列幅固定 */
   }
-  .last-row {
+  .last-row,
+  .wide-row{
     min-width: 300px;
   }
 </style>
@@ -92,7 +100,7 @@
         <!-- 例として5行のデータ -->
         <tr>
           <td>A1</td><td>A2</td><td>A3</td>
-          <td>A4</td><td>A5</td><td>A6</td><td>A7</td><td>A8</td><td>A9</td><td>A10</td>
+          <td>A4</td><td>A5</td><td class="wide-row">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモーリオ市、郊外のぎらぎらひかる草の波。祇辻飴葛蛸鯖鰯噌庖箸 ABCDEFGHIJKLM abcdefghijklm 1234567890</td><td>A7</td><td>A8</td><td>A9</td><td>A10</td>
           <td>A11</td><td>A12</td><td>A13</td><td>A14</td><td>A15</td><td>A16</td><td>A17</td><td>A18</td><td>A19</td><td>A20</td>
           <td>A21</td><td>A22</td><td>A23</td><td>A24</td><td>A25</td><td>A26</td><td>A27</td><td>A28</td><td>A29</td><td>A30</td>
         </tr>
