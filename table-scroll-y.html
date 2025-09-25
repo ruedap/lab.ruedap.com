@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>固定列テーブル（列幅固定）</title>
 <style>
-  html, * {
+  html {
     box-sizing: border-box;
   }
   .table-container {
@@ -13,16 +13,36 @@
     overflow-x: auto;     /* 横スクロールを有効化 */
   }
   table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     min-width: 1000px;    /* テーブル自体の幅（列数 × 列幅以上にする） */
+    border-top: 1px solid #ccc;
   }
   th, td {
-    border: 1px solid #ccc;
+    width: 100px;
     min-width: 100px;
     max-width: 100px;
-    padding: 8px;
+    padding: 6px;
     text-align: left;
-    background: #fff;
+    background: #fff; /* 固定列と重なるときに透けないように */
+    /* border-top: 1px solid #ccc; */
+    border-bottom: 1px solid #ccc;
+    /* 左右は個別に扱うので一旦リセット */
+    border-left: 0;
+    border-right: 0;
+  }
+
+  th:not(:nth-child(-n+3)), td:not(:nth-child(-n+3)) {
+    /* border-left: 1px solid #ccc; */
+    border-right: 1px solid #ccc;
+  }
+
+  /* 固定列の「右端」だけを常に前面で描く（box-shadow で1pxライン） */
+  td:nth-child(1), th:nth-child(1),
+  td:nth-child(2), th:nth-child(2),
+  td:nth-child(3), th:nth-child(3) {
+    /* collapseだと右罫線が隠れがちなので影で代用 */
+    box-shadow: 1px 0 0 0 #ccc inset; /* 右1px線 */
   }
 
   /* 1〜3列目を固定 */
@@ -30,7 +50,6 @@
     position: sticky;
     left: 0;
     background: #f9f9f9;
-    border: 1px solid #ccc;
     z-index: 3;
     width: 100px;         /* 列幅固定 */
   }
@@ -38,7 +57,6 @@
     position: sticky;
     left: 100px;  /* 1列目の幅 */
     background: #f9f9f9;
-    border: 1px solid #ccc;
     z-index: 3;
     width: 100px;         /* 列幅固定 */
   }
@@ -46,9 +64,9 @@
     position: sticky;
     left: 200px;  /* 1列目+2列目の幅 */
     background: #f9f9f9;
-    border: 1px solid #ccc;
     z-index: 3;
     width: 100px;         /* 列幅固定 */
+    border-right: 1px solid #ccc;
   }
   .last-row,
   .wide-row{
